@@ -29,7 +29,6 @@ class XyrellaBlademasterRokaraStrategy:
 
     def battle_loop_core(self, no_ideal_options_counter):
         neeru = pyautogui.locateCenterOnScreen(config.NEERU_FIREBLADE_IMG, confidence=0.9)
-        target = None
         if neeru:
             target = neeru
         else:

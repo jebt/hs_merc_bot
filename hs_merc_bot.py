@@ -132,12 +132,12 @@ def try_for(image):
 
 
 def encounter_selection():
-    print("encounter_slection()")
+    print("encounter_selection()")
     loop_count = 0
     while checkpoint == Checkpoint.ENCOUNTER_SELECT:
         loop_count += 1
         if loop_count > 5:
-            raise TakesTooLongError("Keeps going through encouter selection loop!")
+            raise TakesTooLongError("Keeps going through encounter selection loop!")
         if detect(config.ENCOUNTER_SELECTION_VISIT_BUTTON_IMG):
             if detect(config.TASK_CUE_IMG):
                 go_task()
@@ -347,7 +347,7 @@ def battle_loop():
             print("No battle taking place (rewards). Returning from battle_loop...")
             checkpoint = Checkpoint.REWARDS_COLLECTION
             return
-        print(f"actionloop {i + 1}/{battle_loop_times}...")
+        print(f"battle_loop() {i + 1}/{battle_loop_times}...")
         # no_ideal_options_counter = specific_pluggable_battle_loop_core(no_ideal_options_counter)
         no_ideal_options_counter = strat.battle_loop_core(no_ideal_options_counter)
     raise TakesTooLongError("Should have moved on from battle phase by now!")
