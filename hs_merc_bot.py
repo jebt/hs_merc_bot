@@ -6,6 +6,7 @@ Before you start the script, make sure starting conditions are correct.
 import pyautogui
 import config
 import enum
+import card_in_hand_positions as hand  # todo: get rid of this dependency
 from merc_lib import click, wait
 from xyrella_blademaster_rokara_strategy import XyrellaBlademasterRokaraStrategy
 
@@ -296,11 +297,11 @@ def cariel_xyrella_blademaster_456_play_mercs():
     # click(config.RIGHT_SIDE_OF_BOARD)
     # click(config.CARD_4_OF_4)
     # click(config.RIGHT_SIDE_OF_BOARD)
-    click(config.CARD_4_OF_6)
+    click(hand.CARD_4_OF_6)
     click(config.RIGHT_SIDE_OF_BOARD)
-    click(config.CARD_4_OF_5)
+    click(hand.CARD_4_OF_5)
     click(config.RIGHT_SIDE_OF_BOARD)
-    click(config.CARD_4_OF_4)
+    click(hand.CARD_4_OF_4)
     click(config.RIGHT_SIDE_OF_BOARD)
     click(config.READY_BUTTON)
     wait(5)

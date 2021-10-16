@@ -1,6 +1,7 @@
 import config
 from merc_lib import click, wait
 import pyautogui
+import card_in_hand_positions as hand
 # xyrella, blademaster, rokara: 4/6, 5/5, 3/4 (with tirion, scabbs, tamsin)
 
 
@@ -16,14 +17,24 @@ class XyrellaBlademasterRokaraStrategy:
             config.CLICK_TO_CONTINUE_IMG3,
         ]
 
-    @staticmethod
-    def play_mercs():
-        click(config.CARD_4_OF_6)
-        click(config.RIGHT_SIDE_OF_BOARD)
-        click(config.CARD_5_OF_5)
-        click(config.RIGHT_SIDE_OF_BOARD)
-        click(config.CARD_3_OF_4)
-        click(config.RIGHT_SIDE_OF_BOARD)
+        self.hand_positions_with_original = (
+            hand.CARD_4_OF_6,
+            hand.CARD_5_OF_5,
+            hand.CARD_3_OF_4,
+        )
+
+        self.hand_positions_with_scabbs_malfurion_cornelius = (
+            hand.CARD_3_OF_6,
+            hand.CARD_3_OF_5,
+            hand.CARD_2_OF_4,
+        )
+
+        self.hand_positions = self.hand_positions_with_scabbs_malfurion_cornelius
+
+    def play_mercs(self):
+        for position in self.hand_positions:
+            click(position)
+            click(config.RIGHT_SIDE_OF_BOARD)
         click(config.READY_BUTTON)
         wait(5)
 

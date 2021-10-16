@@ -1,0 +1,88 @@
+## This tierlist is only for an automated unintelligent run.
+
+# tier 1: clears faster!
+subjugation
+windfury
+spirit_blade
+holy_staff
+eye_for_an_eye
+blood_pact
+banner_of_the_horde
+alliance_war_banner
+drain_soul
+stormwind_tabard
+
+# tier 2: adds to survivability
+circle_of_healing
+toughness
+seronite_armor
+ring_of_protection
+spirit_of_redemption
+
+# tier 3: neutral
+wand_of_weakness
+defile
+full_belly
+bouncing_blade
+acquired_allies
+mortal_strike
+bubble_hearth
+double_time
+consecration
+poison_vial
+backstab
+book_of_destruction
+mind_blast
+ancient_reflections
+hysteria
+
+# tier 4: could mess things up (higher is worse)
+boots_of_haste
+cursed_blade
+
+------------------------------------------------------------
+
+# everyone:
+boots_of_haste
+seronite_armor
+ring_of_protection
+double_time
+full_belly(?)
+ancient_reflections(?)
+
+# multiple:
+banner_of_the_horde(horde): tamsin, 
+alliance_war_banner(alliance): xyrella, 
+cursed_blade: blademaster, ...
+mortal_strike(fighters?): scabbs, rokara, blademaster, 
+bouncing_blade(fighters?): scabbs, ... 
+windfury(fighters?): blademaster, rokara, 
+wand_of_weakness(casters?) tamsin, ...
+eye_for_an_eye(paladins?/protectors?): tirion, cornelius, 
+toughness(protectors?): cornelius, ...
+blood_pact(orcs and demons): rokara
+stormwind_tabard(humans): cornelius, 
+poison_vial(rogues?): scabbs, ...
+backstab(rogues?): scabbs, ...
+book_of_destruction(shadow?): tamsin, ...
+mind_blast(shadow?): tamsin, ...
+drain_soul(shadow?): tamsin, ...
+holy_staff(holy?): xyrella, ...
+hysteria(priest?): xyrella, ...
+
+# tirion:
+bubble_hearth
+
+# xyrella:
+subjugation
+spirit_of_redemption
+
+# tamsin: 
+defile
+
+# blademaster:
+?
+
+# scabbs:
+spirit_blade (only scabbs?)
+acquired_allies (what does it do? id it for multiple people?)

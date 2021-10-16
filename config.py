@@ -9,16 +9,6 @@ ENCOUNTER_SELECTION_PLAY_BUTTON = (1525, 840)
 encounter_locations = ((625, 494), (888, 495), (526, 519), (760, 516), (1033, 522))
 TRY_ENCOUNTER_X_COORDS = (375, 450, 525, 600, 675, 750, 825, 900, 975, 1050, 1125)
 reward_locations = ((1030, 316), (1349, 796), (704, 764), (764, 309), (1334, 419), (1204, 883), (636, 750))
-CARD_1_OF_6 = (712, 970)
-CARD_2_OF_6 = (828, 963)
-CARD_3_OF_5 = (960, 960)
-
-# Cariel, Xyrella, Blademaster:
-CARD_4_OF_6 = (1001, 974)
-CARD_4_OF_5 = (1080, 980)
-CARD_4_OF_4 = (1167, 978)
-CARD_5_OF_5 = (1184, 987)
-CARD_3_OF_4 = (1029, 972)
 
 # xyrella, blademaster, rokara: 4/6, 5/5, 3/4 (with tirion, scabbs, tamsin)
 
