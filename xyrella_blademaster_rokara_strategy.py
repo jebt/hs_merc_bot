@@ -23,7 +23,7 @@ class XyrellaBlademasterRokaraStrategy:
             hand.CARD_3_OF_4,
         )
 
-        self.hand_positions_with_scabbs_malfurion_cornelius = (
+        self.hand_positions_with_scabbs_malfurion_cornelius = (  # same for diablo instead of malfurion
             hand.CARD_3_OF_6,
             hand.CARD_3_OF_5,
             hand.CARD_2_OF_4,

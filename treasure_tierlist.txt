@@ -5,6 +5,7 @@ subjugation
 windfury
 spirit_blade
 holy_staff
+nature_staff
 eye_for_an_eye
 blood_pact
 banner_of_the_horde
@@ -35,6 +36,7 @@ book_of_destruction
 mind_blast
 ancient_reflections
 hysteria
+bladestorm
 
 # tier 4: could mess things up (higher is worse)
 boots_of_haste
@@ -49,26 +51,38 @@ ring_of_protection
 double_time
 full_belly(?)
 ancient_reflections(?)
+acquired_allies(?): scabbs, ...
 
 # multiple:
 banner_of_the_horde(horde): tamsin, 
-alliance_war_banner(alliance): xyrella, 
-cursed_blade: blademaster, ...
+alliance_war_banner(alliance): xyrella, malfurion, 
+stormwind_tabard(humans): cornelius, 
+blood_pact(orcs and demons): rokara
+
+cursed_blade(fighters?): blademaster, scabbs, 
 mortal_strike(fighters?): scabbs, rokara, blademaster, 
 bouncing_blade(fighters?): scabbs, ... 
+bladestorm(fighters?): rokara, ...
+thunderclap(fighters?): rokara, ...
 windfury(fighters?): blademaster, rokara, 
+
+toughness(protectors?): cornelius, malfurion, 
+circle_of_healing(protectors?): cornelius, ...
+
 wand_of_weakness(casters?) tamsin, ...
-eye_for_an_eye(paladins?/protectors?): tirion, cornelius, 
-toughness(protectors?): cornelius, ...
-blood_pact(orcs and demons): rokara
-stormwind_tabard(humans): cornelius, 
-poison_vial(rogues?): scabbs, ...
-backstab(rogues?): scabbs, ...
+
 book_of_destruction(shadow?): tamsin, ...
 mind_blast(shadow?): tamsin, ...
 drain_soul(shadow?): tamsin, ...
+
+nature_staff(nature?): malfurion, ...
+
 holy_staff(holy?): xyrella, ...
+
 hysteria(priest?): xyrella, ...
+poison_vial(rogues?): scabbs, ...
+backstab(rogues?): scabbs, ...
+eye_for_an_eye(paladins?): tirion, cornelius, 
 
 # tirion:
 bubble_hearth
@@ -78,11 +92,10 @@ subjugation
 spirit_of_redemption
 
 # tamsin: 
-defile
+defile(warlock?)
 
 # blademaster:
 ?
 
 # scabbs:
 spirit_blade (only scabbs?)
-acquired_allies (what does it do? id it for multiple people?)
