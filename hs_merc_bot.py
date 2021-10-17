@@ -6,6 +6,7 @@ Before you start the script, make sure starting conditions are correct.
 import pyautogui
 import config
 import enum
+import datetime
 import card_in_hand_positions as hand  # todo: get rid of this dependency
 from merc_lib import click, wait
 from xyrella_blademaster_rokara_strategy import XyrellaBlademasterRokaraStrategy
@@ -396,6 +397,9 @@ def bounty_select_to_bounty_select_loop():
         recognize_checkpoint()
         if checkpoint == Checkpoint.BOUNTY_SELECT:
             print(f"Number of bounties cleared so far: {number_of_bounties_cleared}. Starting bounty...")
+            print(f"###################################################################################")
+            print(f"The time right now is: {datetime.datetime.now()}")
+            print(f"###################################################################################")
             bounty_select_to_encounter_select()
         bounty_cleared = False
         while not bounty_cleared:

@@ -3,15 +3,19 @@
 # tier 1: clears faster!
 subjugation
 windfury
-spirit_blade
+blood_fury
 holy_staff
 nature_staff
 eye_for_an_eye
+radiant_breastplate
 blood_pact
 banner_of_the_horde
 alliance_war_banner
-drain_soul
+orgrimmar_tabard
 stormwind_tabard
+spirit_blade
+drain_soul
+spiked_shield
 
 # tier 2: adds to survivability
 circle_of_healing
@@ -37,6 +41,7 @@ mind_blast
 ancient_reflections
 hysteria
 bladestorm
+greater_healing_potion
 
 # tier 4: could mess things up (higher is worse)
 boots_of_haste
@@ -45,6 +50,7 @@ cursed_blade
 ------------------------------------------------------------
 
 # everyone:
+greater_healing_potion
 boots_of_haste
 seronite_armor
 ring_of_protection
@@ -57,6 +63,7 @@ acquired_allies(?): scabbs, ...
 banner_of_the_horde(horde): tamsin, 
 alliance_war_banner(alliance): xyrella, malfurion, 
 stormwind_tabard(humans): cornelius, 
+orgrimmar_tabard(orcs): rokara, 
 blood_pact(orcs and demons): rokara
 
 cursed_blade(fighters?): blademaster, scabbs, 
@@ -65,13 +72,16 @@ bouncing_blade(fighters?): scabbs, ...
 bladestorm(fighters?): rokara, ...
 thunderclap(fighters?): rokara, ...
 windfury(fighters?): blademaster, rokara, 
+blood_fury(fighters?): diablo, ...
 
 toughness(protectors?): cornelius, malfurion, 
 circle_of_healing(protectors?): cornelius, ...
+spiked_shield(protectors?): cornelius, ...
+radiant_breastplate(protectors?): cornelius, ...
 
 wand_of_weakness(casters?) tamsin, ...
 
-book_of_destruction(shadow?): tamsin, ...
+book_of_destruction(shadow?/demon/warlock?): tamsin, diablo, ...
 mind_blast(shadow?): tamsin, ...
 drain_soul(shadow?): tamsin, ...
 
