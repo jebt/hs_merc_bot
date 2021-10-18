@@ -109,3 +109,6 @@ defile(warlock?)
 
 # scabbs:
 spirit_blade (only scabbs?)
+
+# still looking for:
+gf  gkfg  gf g f

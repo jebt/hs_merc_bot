@@ -29,7 +29,19 @@ class XyrellaBlademasterRokaraStrategy:
             hand.CARD_2_OF_4,
         )
 
-        self.hand_positions = self.hand_positions_with_scabbs_malfurion_cornelius
+        self.hand_positions_with_tirion_grom_diablo = (
+            hand.CARD_4_OF_6,
+            hand.CARD_4_OF_5,
+            hand.CARD_3_OF_4,
+        )
+
+        self.hand_positions_with_tirion_tamsin_diablo = (
+            hand.CARD_3_OF_6,
+            hand.CARD_4_OF_5,
+            hand.CARD_2_OF_4
+        )
+
+        self.hand_positions = self.hand_positions_with_tirion_tamsin_diablo
 
     def play_mercs(self):
         for position in self.hand_positions:

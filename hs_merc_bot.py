@@ -318,29 +318,47 @@ def first_ability_target_enemy_minion():
     click(config.SAFE_BET_ENEMY_MINION_LOCATION)
 
 
+def basic_battle_loop_core():
+    neeru = pyautogui.locateCenterOnScreen(config.NEERU_FIREBLADE_IMG, confidence=0.9)
+    ancient = pyautogui.locateCenterOnScreen(config.CORRUPTED_ANCIENT, confidence=0.9)
+    if neeru:
+        target = neeru
+    elif ancient:
+        target = ancient
+    else:
+        target = config.SAFE_BET_ENEMY_MINION_LOCATION
+    for i in range(2):
+        click(config.SAFE_BET_ALLY_MERC_LOCATION)
+        for j in range(4):
+            click(config.SAFE_BET_FIRST_ABILITY_LOCATION)
+            click(target)
+        click(config.READY_BUTTON)
+        wait(20)
+
+
 def battle_loop():
     global checkpoint
     battle_loop_times = 60
-    weird_situation_resolution_strategy_alternation = "yellow_button_strat"
-    no_ideal_options_counter = -1
+    # weird_situation_alternator = "yellow_button_strat"
+    # no_ideal_options_counter = -1
     for i in range(battle_loop_times):
-        no_ideal_options_counter += 1
-        if no_ideal_options_counter > 5:  # failsafe for unusual combat situation
-            if weird_situation_resolution_strategy_alternation == "yellow_button_strat":
-                print("Something is weird! Going to click YELLOW ready button this time...")
-                click(config.READY_BUTTON)
-                weird_situation_resolution_strategy_alternation = "target_first_ability_strat"
-                no_ideal_options_counter = -1
-            elif weird_situation_resolution_strategy_alternation == "target_first_ability_strat":
-                print("Something is weird! Trying to target an ability this time...")
-                first_ability_target_enemy_minion()
-                weird_situation_resolution_strategy_alternation = "yellow_button_strat"
-                no_ideal_options_counter = -1
-            else:
-                raise ValueError(
-                    "weird_situation_resolution_strategy_alternation should always be one of the two possible values, "
-                    "namely: 'yellow_button_strat' or 'target_first_ability_strat'!")
-            wait(5)  # combat actions resolving
+        # no_ideal_options_counter += 1
+        # if no_ideal_options_counter > 3:  # failsafe for unusual combat situation
+        #     if weird_situation_alternator == "yellow_button_strat":
+        #         print("Something is weird! Going to click YELLOW ready button this time...")
+        #         click(config.READY_BUTTON)
+        #         weird_situation_alternator = "target_first_ability_strat"
+        #         no_ideal_options_counter = -1
+        #     elif weird_situation_alternator == "target_first_ability_strat":
+        #         print("Something is weird! Trying to target an ability this time...")
+        #         first_ability_target_enemy_minion()
+        #         weird_situation_alternator = "yellow_button_strat"
+        #         no_ideal_options_counter = -1
+        #     else:
+        #         raise ValueError(
+        #             "weird_situation_alternator should always be one of the two possible values, "
+        #             "namely: 'yellow_button_strat' or 'target_first_ability_strat'!")
+        #     wait(5)  # combat actions resolving
         if detect(config.PICK_ONE_TREASURE_IMG):
             print("No battle taking place (treasure). Returning from battle_loop...")
             checkpoint = Checkpoint.TREASURE_SELECT
@@ -351,7 +369,8 @@ def battle_loop():
             return
         print(f"battle_loop() {i + 1}/{battle_loop_times}...")
         # no_ideal_options_counter = specific_pluggable_battle_loop_core(no_ideal_options_counter)
-        no_ideal_options_counter = strat.battle_loop_core(no_ideal_options_counter)
+        # no_ideal_options_counter = strat.battle_loop_core(no_ideal_options_counter)
+        basic_battle_loop_core()
     raise TakesTooLongError("Should have moved on from battle phase by now!")
 
 
