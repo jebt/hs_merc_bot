@@ -9,3 +9,10 @@ def click(location):
 
 def wait(delay):
     time.sleep(delay)
+
+
+def detect(image):
+    location = pyautogui.locateCenterOnScreen(image, confidence=0.9)
+    if location:
+        print(f"Detected {image.filename} on screen.")
+        return location
