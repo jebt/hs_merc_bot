@@ -1,5 +1,6 @@
 import pyautogui
 import time
+from logging import info
 
 
 def click(location):
@@ -14,5 +15,5 @@ def wait(delay):
 def detect(image):
     location = pyautogui.locateCenterOnScreen(image, confidence=0.9)
     if location:
-        print(f"Detected {image.filename} on screen.")
+        info(f"Detected {image.filename} on screen.")
         return location

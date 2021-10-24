@@ -5,10 +5,10 @@ author: roelantvanderhilst@gmail.com
 import pyautogui
 import config
 import enum
-import datetime
 from merc_lib import click, wait, detect
 from xyrella_blademaster_rokara_strategy import XyrellaBlademasterRokaraStrategy
 import logging
+from logging import info
 import sys
 
 
@@ -44,7 +44,7 @@ def wait_for_yellow_played_button():
     times_to_try = 60
     for i in range(times_to_try):
         if i % 5 == 0:
-            print(f"Trying to detect Played button ({i + 1}/{times_to_try})...")
+            info(f"Trying to detect Played button ({i + 1}/{times_to_try})...")
         played_button_region_screenshot = pyautogui.screenshot(region=config.PLAYED_BUTTON_REGION)
         if pyautogui.locate(played_button_region_screenshot, config.PLAYED_BUTTON_IMG, confidence=0.9):
             return True
@@ -56,14 +56,14 @@ def wait_for_yellow_played_button():
 def go_battle():
     global checkpoint
     checkpoint = Checkpoint.TO_BATTLE
-    print("go_battle()")
+    info("go_battle()")
     click(config.ENCOUNTER_CONFORMATION_BUTTON_LOCATION)
     wait(10)
     wait_for_yellow_played_button()
 
 
 def go_task():
-    print("go_task()")
+    info("go_task()")
     click(config.ENCOUNTER_CONFORMATION_BUTTON_LOCATION)
     wait(0.5)
     click(config.THIRD_VISITOR_LOCATION)
@@ -74,19 +74,19 @@ def go_task():
 
 
 def go_res():
-    print("go_res()")
+    info("go_res()")
     click(config.ENCOUNTER_CONFORMATION_BUTTON_LOCATION)
     wait(5)
 
 
 def go_warp():
-    print("go_warp()")
+    info("go_warp()")
     click(config.ENCOUNTER_CONFORMATION_BUTTON_LOCATION)
     wait(5)
 
 
 def go_boon():
-    print("go_boon()")
+    info("go_boon()")
     click(config.ENCOUNTER_CONFORMATION_BUTTON_LOCATION)
     wait(0.5)
     click(config.TREASURE_SELECTION_CLICKING_POINT)
@@ -94,8 +94,8 @@ def go_boon():
 
 
 def go_pick_up():
-    print("go_pick_up()")
-    print("WARNING: THIS IS RISKY! WE MIGHT DIE WITH THIS!")
+    info("go_pick_up()")
+    logging.warning("THIS CAN BE RISKY! WE MIGHT DIE WITH THIS!")
     click(config.ENCOUNTER_CONFORMATION_BUTTON_LOCATION)
     wait(0.5)
     click(config.TREASURE_SELECTION_CLICKING_POINT)
@@ -103,7 +103,7 @@ def go_pick_up():
 
 
 def go_sabotage():
-    print("go_sabotage()")
+    info("go_sabotage()")
     click(config.ENCOUNTER_CONFORMATION_BUTTON_LOCATION)
     wait(10)  # because it might take long when the map is really big
 
@@ -238,7 +238,7 @@ def button_is_already_active_because_only_one_option():
 
 
 def encounter_selection():
-    logging.info("encounter_selection()")
+    info("encounter_selection()")
     loop_count = 0
     while checkpoint == Checkpoint.ENCOUNTER_SELECT:
         if button_is_already_active_because_only_one_option():
@@ -279,7 +279,7 @@ def collect_rewards():
 #         recognize_checkpoint()
 #         if not checkpoint == Checkpoint.ENCOUNTER_SELECT:
 #             raise CheckpointError("Expected encounter select screen here!")
-#         print(f"Bounties done: {bounties_done}. Starting bounty...")
+#         info(f"Bounties done: {bounties_done}. Starting bounty...")
 #         encounter_selection()
 #         if wait_for_yellow_played_button():
 #             click(config.PLAYED_BUTTON)
@@ -294,40 +294,40 @@ def collect_rewards():
 #             proceed_at_bounty_complete()
 #             wait(3)
 #             bounties_done += 1
-#             print("DONE! WE SHOULD BE AT THE BOUNTIES SCREEN WITH FIRST SELECTED AND CHOOSE BUTTON READY TO GO.")
+#             info("DONE! WE SHOULD BE AT THE BOUNTIES SCREEN WITH FIRST SELECTED AND CHOOSE BUTTON READY TO GO.")
 #             bounty_select_to_encounter_select()
 
 
 def begin_countdown():
     for i in range(config.BEGIN_DELAY):
-        print(f"Starting bot in {config.BEGIN_DELAY - i} seconds...")
+        info(f"Starting bot in {config.BEGIN_DELAY - i} seconds...")
         wait(1)
 
 
 def detect_treasure():
     if pyautogui.locateCenterOnScreen(config.PICK_ONE_TREASURE_IMG, confidence=0.89):
-        print(f"detected {config.PICK_ONE_TREASURE_IMG.filename} on screen")
+        info(f"detected {config.PICK_ONE_TREASURE_IMG.filename} on screen")
         return True
     # elif pyautogui.locateCenterOnScreen(config.PICK_ONE_TREASURE_IMG2, confidence=0.89):
-    #     print(f"detected {config.PICK_ONE_TREASURE_IMG2.filename} on screen")
+    #     info(f"detected {config.PICK_ONE_TREASURE_IMG2.filename} on screen")
     #     return True
     # elif pyautogui.locateCenterOnScreen(config.PICK_ONE_TREASURE_IMG3, confidence=0.89):
-    #     print(f"detected {config.PICK_ONE_TREASURE_IMG3.filename} on screen")
+    #     info(f"detected {config.PICK_ONE_TREASURE_IMG3.filename} on screen")
     #     return True
     # elif pyautogui.locateCenterOnScreen(config.PICK_ONE_TREASURE_IMG4, confidence=0.89):
-    #     print(f"detected {config.PICK_ONE_TREASURE_IMG4.filename} on screen")
+    #     info(f"detected {config.PICK_ONE_TREASURE_IMG4.filename} on screen")
     elif pyautogui.locateCenterOnScreen(config.KEEP_OR_REPLACE_TREASURE_IMG, confidence=0.89):
-        print(f"detected {config.KEEP_OR_REPLACE_TREASURE_IMG.filename} on screen")
+        info(f"detected {config.KEEP_OR_REPLACE_TREASURE_IMG.filename} on screen")
         return True
 
 
 def detect_reward():
     for i in range(2):
         if pyautogui.locateCenterOnScreen(config.REWARD_IMG, confidence=0.87):
-            print("detected reward")
+            info(f"detected {config.REWARD_IMG.filename}")
             return True
         elif pyautogui.locateCenterOnScreen(config.REWARD_IMG2, confidence=0.87):
-            print("detected reward2")
+            info(f"detected {config.REWARD_IMG2.filename}")
             return True
     # for i in range(10000):
     #     if i % 100 == 0:
@@ -351,7 +351,7 @@ def recognize_checkpoint():
     else:
         checkpoint = Checkpoint.UNKNOWN
         raise CheckpointError("Was not able to recognize any of the checkpoint screens!")
-    print(checkpoint)
+    info(checkpoint)
 
 
 def bounty_select_to_encounter_select():
@@ -369,7 +369,7 @@ def encounter_select_to_merc_played():
 
 
 def merc_played_to_battle():
-    print("merc_played_to_battle()")
+    info("merc_played_to_battle()")
     strat.play_mercs()
 
 
@@ -407,12 +407,12 @@ def battle_loop():
         # no_ideal_options_counter += 1
         # if no_ideal_options_counter > 3:  # failsafe for unusual combat situation
         #     if weird_situation_alternator == "yellow_button_strat":
-        #         print("Something is weird! Going to click YELLOW ready button this time...")
+        #         info("Something is weird! Going to click YELLOW ready button this time...")
         #         click(config.READY_BUTTON)
         #         weird_situation_alternator = "target_first_ability_strat"
         #         no_ideal_options_counter = -1
         #     elif weird_situation_alternator == "target_first_ability_strat":
-        #         print("Something is weird! Trying to target an ability this time...")
+        #         info("Something is weird! Trying to target an ability this time...")
         #         first_ability_target_enemy_minion()
         #         weird_situation_alternator = "yellow_button_strat"
         #         no_ideal_options_counter = -1
@@ -423,14 +423,14 @@ def battle_loop():
         #     wait(5)  # combat actions resolving
         # if detect(config.PICK_ONE_TREASURE_IMG):
         if detect_treasure():
-            print("No battle taking place (treasure). Returning from battle_loop...")
+            info("No battle taking place (treasure). Returning from battle_loop...")
             checkpoint = Checkpoint.TREASURE_SELECT
             return
         elif detect_reward():
-            print("No battle taking place (rewards). Returning from battle_loop...")
+            info("No battle taking place (rewards). Returning from battle_loop...")
             checkpoint = Checkpoint.REWARDS_COLLECTION
             return
-        print(f"battle_loop() {i + 1}/{battle_loop_times}...")
+        info(f"battle_loop() {i + 1}/{battle_loop_times}...")
         # no_ideal_options_counter = specific_pluggable_battle_loop_core(no_ideal_options_counter)
         # no_ideal_options_counter = strat.battle_loop_core(no_ideal_options_counter)
         basic_battle_loop_core()
@@ -443,7 +443,7 @@ def specific_pluggable_battle_loop_core(no_ideal_options_counter):
         loc = pyautogui.locateCenterOnScreen(img, confidence=0.9)
         if loc:
             no_ideal_options_counter = -1
-            print(f"Detected {img.filename}! Clicking...")
+            info(f"Detected {img.filename}! Clicking...")
             click(loc)
             if "targeted_attack" in img.filename:
                 click(config.SAFE_BET_ENEMY_MINION_LOCATION)
@@ -457,7 +457,7 @@ def specific_pluggable_battle_loop_core(no_ideal_options_counter):
 
 
 def treasure_select_to_encounter_select():
-    print("treasure_select_to_encounter_select()")
+    info("treasure_select_to_encounter_select()")
     click(config.TREASURE_SELECTION_CLICKING_POINT)
     click(config.TAKE_BUTTON)
     wait(3)
@@ -465,7 +465,7 @@ def treasure_select_to_encounter_select():
 
 
 def rewards_collection_to_bounty_select():
-    print("rewards_collection_to_bounty_select()")
+    info("rewards_collection_to_bounty_select()")
     collect_rewards()
     click(config.REWARDS_DONE_BUTTON)
     wait(5)
@@ -478,10 +478,8 @@ def bounty_select_to_bounty_select_loop():
     while True:
         recognize_checkpoint()
         if checkpoint == Checkpoint.BOUNTY_SELECT:
-            logging.info(f"Number of bounties cleared so far: {number_of_bounties_cleared}. Starting bounty...")
-            print(f"###################################################################################")
-            print(f"The time right now is: {datetime.datetime.now()}")
-            print(f"###################################################################################")
+            info(f"Number of bounties cleared so far: {number_of_bounties_cleared}. Starting bounty...")
+            info(f"###################################################################################")
             bounty_select_to_encounter_select()
         bounty_cleared = False
         while not bounty_cleared:
@@ -517,7 +515,7 @@ def activate_logging():
     handlers = [file_handler, stdout_handler]
     logging.basicConfig(level=logging.DEBUG, format='[%(asctime)s] %(message)s', handlers=handlers)
     sys.excepthook = log_exceptions
-    logging.info("########## START ##########")
+    info("########## START ##########")
 
 
 def test():

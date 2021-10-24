@@ -2,6 +2,7 @@ import config
 from merc_lib import click, wait
 import pyautogui
 import card_in_hand_positions as hand
+import logging
 # xyrella, blademaster, rokara: 4/6, 5/5, 3/4 (with tirion, scabbs, tamsin)
 
 
@@ -60,7 +61,7 @@ class XyrellaBlademasterRokaraStrategy:
             loc = pyautogui.locateCenterOnScreen(img, confidence=0.9)
             if loc:
                 no_ideal_options_counter = -1
-                print(f"Detected {img.filename}! Clicking...")
+                logging.info(f"Detected {img.filename}! Clicking...")
                 click(loc)
                 if "targeted_attack" in img.filename:
                     click(target)
