@@ -39,6 +39,8 @@ REWARD_REGION = (750, 305, 33, 29)
 BOSS_INFO_REGION = (1442, 12, 120, 26)
 ENCOUNTER_TEXT_REGION = (1454, 15, 137, 21)
 
+FELWOOD_BOUNTY_5 = (813, 683)
+
 PLAYED_BUTTON_IMG = Image.open("images/played_button.png")
 ARCANE_EXPLOSION_IMG = Image.open("images/arcane_explosion.png")
 ARCANE_SALVO_IMG = Image.open("images/arcane_salvo.png")

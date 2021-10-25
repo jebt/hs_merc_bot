@@ -8,6 +8,8 @@ import logging
 
 class XyrellaBlademasterRokaraStrategy:
     def __init__(self):
+        self.bounty_selection_location = config.FELWOOD_BOUNTY_5
+
         self.battle_action_imgs = [
             config.XYRELLA_TARGETED_ATTACK,
             config.BLADEMASTER_TARGETED_ATTACK,
@@ -39,10 +41,16 @@ class XyrellaBlademasterRokaraStrategy:
         self.hand_positions_with_tirion_tamsin_diablo = (
             hand.CARD_3_OF_6,
             hand.CARD_4_OF_5,
-            hand.CARD_2_OF_4
+            hand.CARD_2_OF_4,
         )
 
-        self.hand_positions = self.hand_positions_with_tirion_tamsin_diablo
+        self.hand_positions_with_varden_tavish_diablo = (
+            hand.CARD_2_OF_6,
+            hand.CARD_4_OF_5,
+            hand.CARD_1_OF_4,
+        )
+
+        self.hand_positions = self.hand_positions_with_varden_tavish_diablo
 
     def play_mercs(self):
         for position in self.hand_positions:

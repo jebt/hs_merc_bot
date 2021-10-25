@@ -1,6 +1,13 @@
 """
 hs_merc_bot.py
 author: roelantvanderhilst@gmail.com
+todo: visitor task priority list
+todo: treasure priority list
+todo: avoid elites
+todo: deal with stealth target
+todo: use the hearthstone log for playing mercs from hand and abilities/targets
+todo: encounter selection should remember coordinates of encounters so it doesn't have to do horizontal again
+todo: possible res node should only be added if aside from the res cue, also the visit button needs to be highlighted
 """
 import pyautogui
 import config
@@ -37,6 +44,8 @@ pyautogui.FAILSAFE = True
 pyautogui.PAUSE = 0.25
 strat = XyrellaBlademasterRokaraStrategy()
 checkpoint = Checkpoint.UNKNOWN
+
+
 # horizontal_direction_switch = "left_to_right" todo: remove
 
 
@@ -150,9 +159,10 @@ def alternative_encounter_selection():
     }
     for x_coord in config.TRY_ENCOUNTER_X_COORDS:
         click((x_coord, 500))
-        if detect(config.TASK_CUE_IMG):
-            go_task()
-            return
+        if detect(config.ENCOUNTER_SELECTION_VISIT_BUTTON_IMG):
+            if detect(config.TASK_CUE_IMG):
+                go_task()
+                return
         else:
             for encounter in available_encounters:
                 if not available_encounters[encounter][1]:
@@ -355,6 +365,7 @@ def recognize_checkpoint():
 
 
 def bounty_select_to_encounter_select():
+    click(strat.bounty_selection_location)
     click(config.BOUNTY_SELECTION_CHOOSE_BUTTON)
     wait(1)
     click(config.PARTY_SELECTION_CHOOSE_BUTTON)
@@ -510,6 +521,7 @@ def activate_logging():
     def log_exceptions(exc_type, exc_value, exc_traceback):
         logging.error("########## EXCEPTION ##########", exc_info=(exc_type, exc_value, exc_traceback))
         sys.__excepthook__(exc_type, exc_value, exc_traceback)  # calls default excepthook
+
     file_handler = logging.FileHandler(filename='hs_merc_bot.log')
     stdout_handler = logging.StreamHandler(sys.stdout)
     handlers = [file_handler, stdout_handler]
